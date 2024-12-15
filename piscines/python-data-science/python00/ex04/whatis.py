@@ -1,10 +1,12 @@
 import sys
 
+
 def parse_int(str_n: str) -> int:
     try:
         return int(str_n)
-    except:
+    except Exception:
         assert str_n.isnumeric(), "argument is not an integer"
+
 
 def is_pair(n):
     return n % 2 == 0

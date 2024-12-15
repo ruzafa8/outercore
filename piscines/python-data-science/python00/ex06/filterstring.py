@@ -10,7 +10,10 @@ def get_words_biggest_than(text, n):
     words_bigger = [word for word in words_bigger_iter]
     return words_bigger
 
+
 def main():
+    """Main function. It receives two arguments:
+    a phrase and a number, and print the words bigger than the number"""
     try:
         assert len(sys.argv) == 3, "the arguments are bad"
         assert sys.argv[2].isdigit(), "the arguments are bad"
@@ -22,6 +25,7 @@ def main():
         print(words_bigger)
     except AssertionError as err:
         print(f"AssertionError: {err}")
+
 
 if __name__ == "__main__":
     main()

@@ -35,7 +35,8 @@ def print_text_breakdown(text):
 
 
 def main():
-    """main function"""
+    """main function. This function receives one argument
+    or reads a line from stdin and makes a resumen of it."""
     try:
         assert len(sys.argv) <= 2, "more than one argument is provided"
         if len(sys.argv) == 2:

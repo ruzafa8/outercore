@@ -40,14 +40,16 @@ NESTED_MORSE = {
     ' ': '/ ',
 }
 
+
 def morse(text):
     """this function receives a string and returns the morse code
     for the string.
     """
     return ' '.join([NESTED_MORSE.get(c, c) for c in text.upper()])
 
+
 def validate_input():
-    """this function validates the input"""
+    """Validates the input is a phrase"""
     assert len(sys.argv) == 2, "the arguments are bad"
     text = sys.argv[1]
 
@@ -55,12 +57,16 @@ def validate_input():
         assert c.isalnum() or c.isspace(), "the arguments are bad"
     return text
 
+
 def main():
+    """main function. This function receives one argument,
+    which is a phrase and prints it in morse code."""
     try:
         text = validate_input()
         print(morse(text))
     except AssertionError as err:
         print(f"AssertionError: {err}")
+
 
 if __name__ == "__main__":
     main()
