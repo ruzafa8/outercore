@@ -2,7 +2,7 @@ from load_image import ft_load
 import cv2
 
 
-def zoom(img, zoom_factor=20):
+def zoom(img, zoom_factor=2):
     return cv2.resize(img, None, fx=zoom_factor, fy=zoom_factor, interpolation=0)
 
 
