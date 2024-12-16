@@ -3,6 +3,8 @@ import cv2
 
 
 def ft_load(path: str) -> np.array:
+    """This function loads an img from a path
+    and returns it as numpy array."""
     assert (
         path.endswith("jpg")
         or path.endswith("jpeg")

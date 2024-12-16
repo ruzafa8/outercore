@@ -4,6 +4,9 @@ import cv2
 
 
 def slice_image(img, window_size, at) -> np.array:
+    """Given an image, returns a cropped,
+    square-shaped copy of size windows_size,
+    centered at position at."""
     margin = [
         [
             y + x for y in [-round(window_size/2), round(window_size/2)]
@@ -15,6 +18,7 @@ def slice_image(img, window_size, at) -> np.array:
 
 
 def ft_transpose(img: np.array) -> np.array:
+    """Given an numpy array, return the transposed"""
     rows, cols = img.shape
     transposed = np.zeros((cols, rows), dtype=img.dtype)
     for i in range(rows):
@@ -24,6 +28,7 @@ def ft_transpose(img: np.array) -> np.array:
 
 
 def main():
+    """main function"""
     try:
         img = ft_load("animal.jpeg")
         cut_image = slice_image(img, 400, [300, 650])

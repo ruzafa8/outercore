@@ -3,6 +3,9 @@ import cv2
 
 
 def slice_image(img, window_size, at):
+    """Given an image, returns a cropped,
+    square-shaped copy of size windows_size,
+    centered at position at."""
     margin = [
         [
             y + x for y in [-round(window_size/2), round(window_size/2)]
@@ -14,11 +17,14 @@ def slice_image(img, window_size, at):
 
 
 def print_img(img):
-    cv2.imshow('image', img)
+    """prints an img"""
+    img_bgr = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
+    cv2.imshow("image", img_bgr)
     cv2.waitKey(0)
 
 
 def main():
+    """main function"""
     try:
         img = ft_load("animal.jpeg")
         print(img)
