@@ -2,8 +2,7 @@ from load_image import ft_load
 import cv2
 
 
-def resize(img, window_size, at):
-    
+def slice_image(img, window_size, at):
     margin = [
         [
             y + x for y in [-round(window_size/2), round(window_size/2)]
@@ -20,13 +19,16 @@ def print_img(img):
 
 
 def main():
-    img = ft_load("animal.jpeg")
-    print(img)
-    print_img(img)
-    img_zoomed = resize(img, 400, [300, 650])
-    print(f"New shape after slicing: {img_zoomed.shape}")
-    print(img_zoomed)
-    print_img(img_zoomed)
+    try:
+        img = ft_load("animal.jpeg")
+        print(img)
+        print_img(img)
+        img_zoomed = slice_image(img, 400, [300, 650])
+        print(f"New shape after slicing: {img_zoomed.shape}")
+        print(img_zoomed)
+        print_img(img_zoomed)
+    except AssertionError as e:
+        print(f"AssertionError: {e}")
 
 
 if __name__ == "__main__":
