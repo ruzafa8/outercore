@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-def load(path: str) -> pd.DataFrame:
+def load(path: str) -> pd.DataFrame | None:
     try:
         assert path.endswith("csv"), "File is not CSV"
         csv = pd.read_csv(path)
