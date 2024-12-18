@@ -3,6 +3,9 @@ from load_csv import load
 
 
 def main():
+    """This function reads a life
+    expectancy years CSV file and plots
+    the data of Spain"""
     try:
         data = load("life_expectancy_years.csv")
         assert data is not None, "Error with data"
@@ -13,10 +16,13 @@ def main():
 
         plt.plot(years, life_expectancy)
         plt.title('Spain Life Expectancy Projections')
+
         plt.xlabel('Year')
         plt.xticks(years[::40])
+
         plt.ylabel('Life Expectancy')
         plt.yticks(range(30, 101, 10))
+
         plt.show()
 
     except BaseException as e:
