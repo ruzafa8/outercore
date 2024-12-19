@@ -25,6 +25,7 @@ class Baratheon(Character):
 class Lannister(Character):
     """Who is that Character?... Is... Lannister!!!"""
     def __init__(self, first_name, is_alive=True):
+        """Lannister constructor"""
         super().__init__(first_name, is_alive)
         self.family_name = 'Lannister'
         self.eyes = 'blue'
@@ -36,11 +37,14 @@ class Lannister(Character):
         self.is_alive = False
 
     def __repr__(self):
+        """Internal representation of a Lannister"""
         return f"('{self.family_name}', '{self.eyes}', '{self.hairs}')"
 
     def __str__(self):
+        """Visual representation of a Lannister"""
         return f"('{self.family_name}', '{self.eyes}', '{self.hairs}')"
 
     @classmethod
     def create_lannister(cls, first_name, is_alive):
+        """This method instanciates a new Lannister ;)"""
         return cls(first_name, is_alive)
