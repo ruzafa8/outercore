@@ -1,12 +1,14 @@
-class Coordinates {
+package io.github.ruzafa8.ft.avaj_launcher;
+
+public class Coordinates {
     private int longitude;
     private int latitude;
     private int height;
 
-    public Coordinates(int pLongitude, int pLatitude, int pHeight) {
-        this.longitude = pLongitude;
-        this.latitude = pLatitude;
-        this.height = pHeight;
+    public Coordinates(int longitude, int latitude, int height) {
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.height = height;
     }
 
     public int getLongitude() {
