@@ -1,6 +1,6 @@
 package io.github.ruzafa8.ft.avaj_launcher;
 
-abstract class Flyable {
+public abstract class Flyable {
     protected WeatherTower weatherTower;
 
     public abstract void updateConditions();
@@ -8,4 +8,6 @@ abstract class Flyable {
     public void registerTower(WeatherTower weatherTower) {
         this.weatherTower = weatherTower;
     }
+
+    protected abstract String getCode();
 }

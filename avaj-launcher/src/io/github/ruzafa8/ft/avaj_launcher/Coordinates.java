@@ -22,4 +22,16 @@ public class Coordinates {
     public int getHeight() {
         return this.height;
     }
+
+    public void offsetCoordinates(int longitudeOffset, int latitudeOffset, int heightOffset) {
+       this.longitude += longitudeOffset;
+       this.latitude += latitudeOffset;
+       this.height += heightOffset;
+       if (this.height < 0) {
+           this.height = 0;
+       }
+       if (this.height > 100) {
+           this.height = 100;
+       }
+    }
 }

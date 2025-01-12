@@ -12,9 +12,10 @@ public class Tower {
 
     public void unregister(Flyable observer) {
         this.observers.remove(observer);
+        System.out.println("Tower says: " + observer.getCode() + " unregistered to weather tower.");
     }
 
     protected void conditionChanged() {
-
+        this.observers.forEach(Flyable::updateConditions);
     }
 }

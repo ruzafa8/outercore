@@ -15,4 +15,9 @@ public class Aircraft extends Flyable {
     public void updateConditions() {
         // Should I implement it here? or better make class abstract?
     }
+
+    @Override
+    protected String getCode() {
+        return this.getClass().getSimpleName() + '#' + name + '(' + id + ")";
+    }
 }

@@ -7,7 +7,7 @@ public class WeatherProvider {
     private WeatherProvider() {}
 
     public String getCurrentWeather(Coordinates coordinates) {
-        return "TO DO";
+        return "SUN";
     }
 
     public static WeatherProvider getInstance() {
