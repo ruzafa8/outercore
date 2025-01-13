@@ -1,6 +1,7 @@
 package io.github.ruzafa8.ft.avaj_launcher.flyable;
 
 import io.github.ruzafa8.ft.avaj_launcher.Coordinates;
+import io.github.ruzafa8.ft.avaj_launcher.SimulationException;
 
 public class AircraftFactory {
     private static AircraftFactory instance;
@@ -17,11 +18,11 @@ public class AircraftFactory {
     }
 
     public Flyable newAircraft(String type, String name, Coordinates coordinates) {
-        return switch (type) {
-            case "Baloon" -> new Baloon(getNextId(), name, coordinates);
-            case "JetPlane" -> new JetPlane(getNextId(), name, coordinates);
-            case "Helicopter" -> new Helicopter(getNextId(), name, coordinates);
-            default -> null;
+        return switch (type.toUpperCase()) {
+            case "BALOON" -> new Baloon(getNextId(), name, coordinates);
+            case "JETPLANE" -> new JetPlane(getNextId(), name, coordinates);
+            case "HELICOPTER" -> new Helicopter(getNextId(), name, coordinates);
+            default -> throw new SimulationException(type + " is not a valid Aircraft type");
         };
     }
 
