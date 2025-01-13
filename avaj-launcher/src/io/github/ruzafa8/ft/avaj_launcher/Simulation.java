@@ -33,9 +33,11 @@ public class Simulation {
     private static void parseFile(String filename) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             Simulation.numberOfSimulations = Integer.parseInt(reader.readLine());
+            if (Simulation.numberOfSimulations <= 0)
+                throw new SimulationException("Number of simulations must be greater than 0");
             reader.lines().map(Simulation::parseLine).forEach(flyable -> flyable.registerTower(Simulation.weatherTower));
         } catch (NumberFormatException e) {
-            throw new SimulationException("First line must be a valid number");
+            throw new SimulationException("First line must be a valid number (the number of simulations)");
         } catch (FileNotFoundException e) {
             throw new SimulationException("File not found: " + filename);
         } catch (IOException e) {

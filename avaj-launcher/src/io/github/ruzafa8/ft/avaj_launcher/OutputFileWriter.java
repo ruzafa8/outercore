@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class OutputFileWriter {
-    private static final String filename = "output.txt";
+    private static final String filename = "simulation.txt";
 
     public static void write(String content) {
         try (BufferedWriter out = new BufferedWriter(new FileWriter(filename, true))) {
