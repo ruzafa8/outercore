@@ -18,6 +18,7 @@ public class Simulation {
                 throw new SimulationException("Usage: java Main <input file>");
             Simulation.parseFile(args[0]);
             Simulation.simulate();
+            OutputFileWriter.flush();
             System.exit(0);
         } catch (SimulationException e) {
             System.out.println(e.getMessage());
