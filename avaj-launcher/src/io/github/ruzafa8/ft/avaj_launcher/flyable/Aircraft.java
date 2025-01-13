@@ -1,6 +1,7 @@
 package io.github.ruzafa8.ft.avaj_launcher.flyable;
 
 import io.github.ruzafa8.ft.avaj_launcher.Coordinates;
+import io.github.ruzafa8.ft.avaj_launcher.OutputFileWriter;
 
 public class Aircraft extends Flyable {
     protected long id;
@@ -16,6 +17,7 @@ public class Aircraft extends Flyable {
     @Override
     public void updateConditions() {
         if (this.coordinates.getHeight() == 0) {
+            OutputFileWriter.write(getCode() + " landing.");
             this.weatherTower.unregister(this);
             this.weatherTower = null;
         }
