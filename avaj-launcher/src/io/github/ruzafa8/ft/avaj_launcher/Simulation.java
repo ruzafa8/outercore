@@ -13,17 +13,19 @@ public class Simulation {
     private static final WeatherTower weatherTower = new WeatherTower();
 
     public static void main(String[] args) {
+        int statusCode = 0;
         try {
             if (args.length != 1)
                 throw new SimulationException("Usage: java Main <input file>");
             Simulation.parseFile(args[0]);
             Simulation.simulate();
-            OutputFileWriter.flush();
-            System.exit(0);
         } catch (SimulationException e) {
             System.out.println(e.getMessage());
-            System.exit(1);
+            statusCode = 1;
+        } finally {
+            OutputFileWriter.close();
         }
+        System.exit(statusCode);
     }
 
     private static void simulate() {
