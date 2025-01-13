@@ -19,9 +19,12 @@ public class Tower {
     }
 
     protected void conditionChanged() {
-        for (int i = 0; i < this.observers.size(); i++) {
+        int i = 0;
+        while (i < this.observers.size()) {
             Flyable observer = this.observers.get(i);
             observer.updateConditions();
+            if (observer.getWeatherTower() != null)
+                i++;
         }
     }
 }

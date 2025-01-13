@@ -13,4 +13,8 @@ public abstract class Flyable {
     }
 
     public abstract String getCode();
+
+    public WeatherTower getWeatherTower() {
+        return weatherTower;
+    }
 }
