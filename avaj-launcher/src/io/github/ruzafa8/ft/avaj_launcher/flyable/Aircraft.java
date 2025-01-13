@@ -1,4 +1,6 @@
-package io.github.ruzafa8.ft.avaj_launcher;
+package io.github.ruzafa8.ft.avaj_launcher.flyable;
+
+import io.github.ruzafa8.ft.avaj_launcher.Coordinates;
 
 public class Aircraft extends Flyable {
     protected long id;
@@ -13,11 +15,14 @@ public class Aircraft extends Flyable {
 
     @Override
     public void updateConditions() {
-        // Should I implement it here? or better make class abstract?
+        if (this.coordinates.getHeight() == 0) {
+            this.weatherTower.unregister(this);
+            this.weatherTower = null;
+        }
     }
 
     @Override
-    protected String getCode() {
+    public String getCode() {
         return this.getClass().getSimpleName() + '#' + name + '(' + id + ")";
     }
 }

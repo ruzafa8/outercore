@@ -1,4 +1,6 @@
-package io.github.ruzafa8.ft.avaj_launcher;
+package io.github.ruzafa8.ft.avaj_launcher.flyable;
+
+import io.github.ruzafa8.ft.avaj_launcher.Coordinates;
 
 public class AircraftFactory {
     private static AircraftFactory instance;
