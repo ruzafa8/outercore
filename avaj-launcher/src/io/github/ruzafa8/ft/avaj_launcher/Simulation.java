@@ -7,6 +7,9 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.stream.Collectors;
+import java.util.Optional;
+
 
 public class Simulation {
     private static int numberOfSimulations;
@@ -38,7 +41,11 @@ public class Simulation {
             Simulation.numberOfSimulations = Integer.parseInt(reader.readLine());
             if (Simulation.numberOfSimulations <= 0)
                 throw new SimulationException("Number of simulations must be greater than 0");
-            reader.lines().map(Simulation::parseLine).forEach(flyable -> flyable.registerTower(Simulation.weatherTower));
+            reader.lines().map(Simulation::parseLine)
+		    .peek(flyable -> flyable.registerTower(Simulation.weatherTower))
+		    .collect(Collectors.collectingAndThen(Collectors.toList(), Optional::of))
+		    .filter(l -> !l.isEmpty())
+		    .orElseThrow(() -> new SimulationException("No aircraft data was supplied"));
         } catch (NumberFormatException e) {
             throw new SimulationException("First line must be a valid number (the number of simulations)");
         } catch (FileNotFoundException e) {
