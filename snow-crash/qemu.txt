@@ -1,0 +1,1 @@
+qemu-system-x86_64 -boot d -cdrom SnowCrash.iso -m 512 -netdev user,id=net0,hostfwd=tcp::4242-:4242,hostfwd=tcp::4141-:23 -device e1000,netdev=net0
