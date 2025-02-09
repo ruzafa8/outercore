@@ -3,27 +3,32 @@ from linear_regression.train import LinearRegression
 
 
 def linear_regression_train():
-    args = parse_params()
+    try:
+        args = parse_params()
 
-    regression = LinearRegression.load_file(args.file)
-    regression.train(learning_rate=args.learning_rate,
-                     iterations=args.iterations, debug=args.debug)
+        regression = LinearRegression.load_file(args.file)
+        regression.train(learning_rate=args.learning_rate,
+                         iterations=args.iterations, debug=args.debug)
 
-    print("============================================")
-    print("Training result:")
-    print("θ₀ = ", regression.theta0)
-    print("θ₁ = ", regression.theta1)
-    print("============================================")
-    if args.accuracy:
-        print("Accuracy measurement:")
-        print(regression.get_accuracy())
         print("============================================")
+        print("Training result:")
+        print("θ₀ = ", regression.theta0)
+        print("θ₁ = ", regression.theta1)
+        print("============================================")
+        if args.accuracy:
+            print("Accuracy measurement:")
+            print(regression.get_accuracy())
+            print("============================================")
 
-    if args.plot:
-        regression.plot_data()
+        if args.plot:
+            regression.plot_data()
 
-    with open(args.output, "w") as file:
-        file.write(f"{regression.theta0}:{regression.theta1}")
+        with open(args.output, "w") as file:
+            file.write(f"{regression.theta0}:{regression.theta1}")
+    except AssertionError as e:
+        print(e)
+    except BaseException as e:
+        print(f"{type(e).__name__}: {e}")
 
 
 def parse_params():

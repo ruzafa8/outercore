@@ -7,6 +7,5 @@ def load(path: str) -> pd.DataFrame | None:
         assert path.endswith("csv"), "File is not CSV"
         csv = pd.read_csv(path)
         return csv
-    except BaseException as e:
-        print(f"{type(e).__name__}: {e}")
-        return None
+    except FileNotFoundError:
+        raise AssertionError("file not found")
