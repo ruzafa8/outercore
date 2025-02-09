@@ -61,7 +61,8 @@ class LinearRegression:
     def get_accuracy(self):
         pred = [self.estimate_price(km) for km in self.original_data.km]
         RSS = sum((self.original_data.price - pred) ** 2)
-        TSS = sum((self.original_data.price - self.original_data.price.mean()) ** 2)
+        TSS = sum((
+            self.original_data.price - self.original_data.price.mean()) ** 2)
         R2 = 1 - RSS / TSS
 
         MAE = sum(abs(self.original_data.price - pred)) / self.m
