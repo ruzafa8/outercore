@@ -1,0 +1,3 @@
+[submodule "malloc/lib/libft"]
+	path = malloc/lib/libft
+	url = git@github.com:ruzafa8/libft.git
